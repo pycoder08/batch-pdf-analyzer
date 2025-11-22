@@ -208,4 +208,6 @@ __marimo__/
 !/credentials.json
 !/media/
 !/prompts/
-!/.env
+
+/.env
+!/prompts/
