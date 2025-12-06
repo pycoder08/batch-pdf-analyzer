@@ -4,8 +4,8 @@ This script automates the analysis of student assignments by leveraging Google S
 
 ### Features
 - **Google Sheets Integration:** Reads student names and file links directly from your spreadsheet
-- **Intelligent Name Extraction:** Features a parsing algorithm to identify student names. It automatically isolates names by detecting and stripping common file prefixes (like dates or assignment titles in parentheses) and truncating trailing metadata like Student IDs or course codes.
-- **Smart State Awareness:** Automatically skips files that have already been uploaded or analyzed. You can stop and restart the script at any time without losing progress or duplicating work.
+- **Name Extraction:** Features a parsing algorithm to identify student names. It automatically isolates names by detecting and stripping common file prefixes (like dates or assignment titles in parentheses) and truncating trailing metadata like Student IDs or course codes.
+- **State Awareness:** Automatically skips files that have already been uploaded or analyzed. You can stop and restart the script at any time without losing progress or duplicating work.
 - **Cost-Effective:** Uses a synchronous approach designed to stay within the free tier limits of the Gemini API.
 - **Structured Output:** Saves all AI responses to a local JSON file (`responses.json`) for easy data processing.
 - **PDF Report Generation:** Optionally converts the AI's text analysis into clean, formatted PDF reports for each student.
