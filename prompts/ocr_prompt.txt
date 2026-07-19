@@ -1,0 +1,7 @@
+Transcribe all text visible in this document exactly as written, including handwritten text.
+
+Rules:
+- Preserve the original line breaks and paragraph structure where meaningful.
+- If a word or phrase is illegible, write [illegible] in its place rather than guessing.
+- Do not correct spelling, grammar, or punctuation - transcribe exactly what is written.
+- Do not add commentary, summaries, or analysis. Output only the transcribed text.

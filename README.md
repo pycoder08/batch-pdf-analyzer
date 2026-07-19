@@ -1,4 +1,7 @@
 # gemini-batch-pdfs
+
+> **What this is:** A standalone Python CLI script (run with `python gemini_batch.py`) — not a package or web service. See [Setup](#setup) below to configure credentials and dependencies before running.
+
 ## Description
 This script automates the analysis of student assignments by leveraging Google Sheets, Google Drive, and Google's Gemini API. It reads assignment links directly from a spreadsheet, fetches the student's PDF from Google Drive, and sends it to Gemini for analysis or processing based on your custom instructions.
 
@@ -63,7 +66,9 @@ This script automates the analysis of student assignments by leveraging Google S
     SHEET_RANGE=
     
     # --- Gemini API Configuration ---
-    GEMINI_MODEL=gemini-1.5-flash
+    # Your Gemini API key from step 2
+    GEMINI_API_KEY=
+    GEMINI_MODEL=gemini-2.5-flash
     # The main prompt for analyzing student feedback
     ANALYSIS_PROMPT_FILE=prompts/analysis_prompt.txt
     # The prompt for transcribing (OCR) handwritten PDFs
@@ -78,9 +83,9 @@ This script automates the analysis of student assignments by leveraging Google S
     - *Tip: The SPREADSHEET_ID is the long string of letters and numbers in your Google Sheet URL.*
 
 5. **Configure Prompts**
-    - Create a file in the root directory called `prompts`
-    - Inside that folder, create a text file named `analysis_prompt.txt`
-    - Put the instructions you want the AI to follow in that file
+    - Create a folder in the root directory called `prompts`
+    - Inside it, create `analysis_prompt.txt` with the instructions you want the AI to follow when analyzing PDFs
+    - Also create `ocr_prompt.txt` with instructions for the OCR/transcription workflow — both files are required at startup even if you only use the `analyze` workflow
 
 
 
@@ -93,7 +98,12 @@ This script automates the analysis of student assignments by leveraging Google S
    To change how the AI analyzes the files (e.g., changing from grading to transcription), simply edit the text inside `prompts/analysis_prompt.txt`.
 
 3. **Run the Script**
-   Execute the script from your terminal:
+   Execute the script from your terminal, choosing which workflow to run:
    ```
-   python gemini_batch.py
+   python gemini_batch.py analyze        # Default: read Sheet links, analyze each PDF with Gemini
+   python gemini_batch.py analyze-folder # Analyze every PDF directly in Drive folder FOLDER_ID, no Sheet needed
+   python gemini_batch.py update-sheet   # Re-parse names from Drive filenames and overwrite the Sheet
+   python gemini_batch.py json-to-pdf    # Convert an existing responses.json into PDF reports
+   python gemini_batch.py ocr-test       # Run the OCR prompt against a single example file
    ```
+   Run `python gemini_batch.py --help` for details, or add `-v` for verbose/debug logging.
