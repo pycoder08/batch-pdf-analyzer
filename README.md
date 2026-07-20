@@ -33,7 +33,7 @@ This script automates the analysis of student assignments by leveraging Google S
 
 3. **Setup Google Cloud**
     - Select Your Google Cloud Project
-        - Go to the [Google Cloud Console](console.cloud.google.com) and select the project you used for your API key (or make a new one).
+        - Go to the [Google Cloud Console](https://console.cloud.google.com) and select the project you used for your API key (or make a new one).
     - Enable the Google Drive API: In the top search bar, search for and enable the "Google Drive API".
         -  Configure the OAuth Consent Screen:
         -  Navigate to APIs & Services > OAuth consent screen.
